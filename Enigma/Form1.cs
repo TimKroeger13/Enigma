@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace Enigma
 {
-    public partial class Form1 : Form
+    public partial class enigma : Form
     {
-        public Form1()
+        public enigma()
         {
             InitializeComponent();
         }
 
+        private void enigma_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
