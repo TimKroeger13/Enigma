@@ -5,7 +5,6 @@ G:\Info\Projects\Enigma\Enigma\bin\Debug\netcoreapp3.1\Enigma.runtimeconfig.dev.
 G:\Info\Projects\Enigma\Enigma\bin\Debug\netcoreapp3.1\Enigma.dll
 G:\Info\Projects\Enigma\Enigma\bin\Debug\netcoreapp3.1\Enigma.pdb
 G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.csprojAssemblyReference.cache
-G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.Form1.resources
 G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.csproj.GenerateResource.cache
 G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.AssemblyInfoInputs.cache
 G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.AssemblyInfo.cs
@@ -13,3 +12,4 @@ G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.csproj.CoreCompile
 G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.dll
 G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.pdb
 G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.genruntimeconfig.cache
+G:\Info\Projects\Enigma\Enigma\obj\Debug\netcoreapp3.1\Enigma.enigma.resources
