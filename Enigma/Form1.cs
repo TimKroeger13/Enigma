@@ -27,7 +27,7 @@ namespace Enigma
         public Dictionary<char, char> dic = new Dictionary<char, char>();
         public List<int> colorList = new List<int>() {255,0,0, 0,255,0, 0,0,255, 255,255,0, 255,0,255,
                                                       0,255,255, 127,0,255, 0,127,255 , 255,127,0, 255,0,127};
-        public int colerCounter = 0;
+        public int colorCounter = 0;
         public void InitialiseAlphabet()
         {
             dic.Clear();
@@ -128,7 +128,7 @@ namespace Enigma
         }
         public void ChangeDictonaryAndColors()
         {
-            colerCounter += 3;
+            colorCounter += 3;
             ChangeDictonary(lowerButton1, lowerButton2);
             ChangeDictonary(upperButton1, upperButton2);
             ChangeDictonary(lowerButton2, lowerButton1);
@@ -141,16 +141,6 @@ namespace Enigma
         private void ButtonConvert_Click(object sender, EventArgs e)
         {
             TextBoxMain.Text = ConvertText(TextBoxMain.Text);
-            InitialiseAlphabet();
-            ButtonEnable(true);
-            ResetButtonColor();
-            progress = 0;
-            ProgressBar.Value = 0;
-            colerCounter = 0;
-            buttonAlreadyPressed = false;
-            lockedButtonCounter = 0;
-            ButtonA.BackColor = Color.Transparent;
-            ButtonB.BackColor = Color.Transparent;
         }
         private void ButtonClear_Click(object sender, EventArgs e)
         {
@@ -159,7 +149,7 @@ namespace Enigma
             ResetButtonColor();            
             progress = 0;
             ProgressBar.Value = 0;
-            colerCounter = 0;
+            colorCounter = 0;
             buttonAlreadyPressed = false;
             lockedButtonCounter = 0;
             ButtonConvert.Enabled = true;            
@@ -181,7 +171,7 @@ namespace Enigma
                 upperButton2 = 'A';
             }
             ButtonA.Enabled = false;
-            ButtonA.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonA.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonB_Click(object sender, EventArgs e)
@@ -197,7 +187,7 @@ namespace Enigma
                 upperButton2 = 'B';
             }
             ButtonB.Enabled = false;
-            ButtonB.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonB.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonC_Click(object sender, EventArgs e)
@@ -213,7 +203,7 @@ namespace Enigma
                 upperButton2 = 'C';
             }
             ButtonC.Enabled = false;
-            ButtonC.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonC.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonD_Click(object sender, EventArgs e)
@@ -229,7 +219,7 @@ namespace Enigma
                 upperButton2 = 'D';
             }
             ButtonD.Enabled = false;
-            ButtonD.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonD.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonE_Click(object sender, EventArgs e)
@@ -245,7 +235,7 @@ namespace Enigma
                 upperButton2 = 'E';
             }
             ButtonE.Enabled = false;
-            ButtonE.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonE.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonF_Click(object sender, EventArgs e)
@@ -261,7 +251,7 @@ namespace Enigma
                 upperButton2 = 'F';
             }
             ButtonF.Enabled = false;
-            ButtonF.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonF.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonG_Click(object sender, EventArgs e)
@@ -277,7 +267,7 @@ namespace Enigma
                 upperButton2 = 'G';
             }
             ButtonG.Enabled = false;
-            ButtonG.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonG.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonH_Click(object sender, EventArgs e)
@@ -293,7 +283,7 @@ namespace Enigma
                 upperButton2 = 'H';
             }
             ButtonH.Enabled = false;
-            ButtonH.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonH.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonI_Click(object sender, EventArgs e)
@@ -309,7 +299,7 @@ namespace Enigma
                 upperButton2 = 'I';
             }
             ButtonI.Enabled = false;
-            ButtonI.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonI.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonJ_Click(object sender, EventArgs e)
@@ -325,7 +315,7 @@ namespace Enigma
                 upperButton2 = 'J';
             }
             ButtonJ.Enabled = false;
-            ButtonJ.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonJ.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonK_Click(object sender, EventArgs e)
@@ -341,7 +331,7 @@ namespace Enigma
                 upperButton2 = 'K';
             }
             ButtonK.Enabled = false;
-            ButtonK.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonK.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonL_Click(object sender, EventArgs e)
@@ -357,7 +347,7 @@ namespace Enigma
                 upperButton2 = 'L';
             }
             ButtonL.Enabled = false;
-            ButtonL.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonL.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonM_Click(object sender, EventArgs e)
@@ -373,7 +363,7 @@ namespace Enigma
                 upperButton2 = 'M';
             }
             ButtonM.Enabled = false;
-            ButtonM.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonM.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonN_Click(object sender, EventArgs e)
@@ -389,7 +379,7 @@ namespace Enigma
                 upperButton2 = 'N';
             }
             ButtonN.Enabled = false;
-            ButtonN.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonN.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonO_Click(object sender, EventArgs e)
@@ -405,7 +395,7 @@ namespace Enigma
                 upperButton2 = 'O';
             }
             ButtonO.Enabled = false;
-            ButtonO.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonO.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonP_Click(object sender, EventArgs e)
@@ -421,7 +411,7 @@ namespace Enigma
                 upperButton2 = 'P';
             }
             ButtonP.Enabled = false;
-            ButtonP.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonP.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonQ_Click(object sender, EventArgs e)
@@ -437,7 +427,7 @@ namespace Enigma
                 upperButton2 = 'Q';
             }
             ButtonQ.Enabled = false;
-            ButtonQ.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonQ.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonR_Click(object sender, EventArgs e)
@@ -453,7 +443,7 @@ namespace Enigma
                 upperButton2 = 'R';
             }
             ButtonR.Enabled = false;
-            ButtonR.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonR.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonS_Click(object sender, EventArgs e)
@@ -469,7 +459,7 @@ namespace Enigma
                 upperButton2 = 'S';
             }
             ButtonS.Enabled = false;
-            ButtonS.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonS.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonT_Click(object sender, EventArgs e)
@@ -485,7 +475,7 @@ namespace Enigma
                 upperButton2 = 'T';
             }
             ButtonT.Enabled = false;
-            ButtonT.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonT.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonU_Click(object sender, EventArgs e)
@@ -501,7 +491,7 @@ namespace Enigma
                 upperButton2 = 'U';
             }
             ButtonU.Enabled = false;
-            ButtonU.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonU.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonV_Click(object sender, EventArgs e)
@@ -517,7 +507,7 @@ namespace Enigma
                 upperButton2 = 'V';
             }
             ButtonV.Enabled = false;
-            ButtonV.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonV.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonW_Click(object sender, EventArgs e)
@@ -533,7 +523,7 @@ namespace Enigma
                 upperButton2 = 'W';
             }
             ButtonW.Enabled = false;
-            ButtonW.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonW.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonX_Click(object sender, EventArgs e)
@@ -549,7 +539,7 @@ namespace Enigma
                 upperButton2 = 'X';
             }
             ButtonX.Enabled = false;
-            ButtonX.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonX.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonY_Click(object sender, EventArgs e)
@@ -565,7 +555,7 @@ namespace Enigma
                 upperButton2 = 'Y';
             }
             ButtonY.Enabled = false;
-            ButtonY.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonY.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonZ_Click(object sender, EventArgs e)
@@ -581,7 +571,7 @@ namespace Enigma
                 upperButton2 = 'Z';
             }
             ButtonZ.Enabled = false;
-            ButtonZ.BackColor = Color.FromArgb(colorList[colerCounter], colorList[colerCounter + 1], colorList[colerCounter + 2]);
+            ButtonZ.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
             UpdateProgress();
         }
     }
