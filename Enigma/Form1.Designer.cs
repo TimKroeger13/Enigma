@@ -1,7 +1,7 @@
 ﻿
 namespace Enigma
 {
-    partial class enigma
+    partial class Enigma
     {
         /// <summary>
         ///  Required designer variable.
@@ -376,7 +376,6 @@ namespace Enigma
             this.TextBoxMain.Name = "TextBoxMain";
             this.TextBoxMain.Size = new System.Drawing.Size(498, 237);
             this.TextBoxMain.TabIndex = 28;
-            this.TextBoxMain.TextChanged += new System.EventHandler(this.TextBoxMain_TextChanged);
             // 
             // ProgressBar
             // 
@@ -422,7 +421,7 @@ namespace Enigma
             this.Controls.Add(this.ButtonA);
             this.Name = "enigma";
             this.Text = "Enigma";
-            this.Load += new System.EventHandler(this.enigma_Load);
+            this.Load += new System.EventHandler(this.Enigma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

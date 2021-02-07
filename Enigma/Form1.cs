@@ -10,28 +10,28 @@ using System.Windows.Forms;
 
 namespace Enigma
 {
-    public partial class enigma : Form
+    public partial class Enigma : Form
     {
-        public enigma()
+        public Enigma()
         {
             InitializeComponent();
         }
-        public string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        public bool buttonAlreadyPressed = false;
-        public int lockedButtonCounter = 0;
-        public char lowerButton1;
-        public char lowerButton2;
-        public char upperButton1;
-        public char upperButton2;
-        public int progress = 0;
+        public string Alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public bool ButtonAlreadyPressed = false;
+        public int LockedButtonCounter = 0;
+        public char LowerButton1;
+        public char LowerButton2;
+        public char UpperButton1;
+        public char UpperButton2;
+        public int Progress = 0;
         public Dictionary<char, char> dic = new Dictionary<char, char>();
-        public List<int> colorList = new List<int>() {255,0,0, 0,255,0, 0,0,255, 255,255,0, 255,0,255,
+        public List<int> ColorList = new List<int>() {255,0,0, 0,255,0, 0,0,255, 255,255,0, 255,0,255,
                                                       0,255,255, 127,0,255, 0,127,255 , 255,127,0, 255,0,127};
-        public int colorCounter = 0;
+        public int ColorCounter = 0;
         public void InitialiseAlphabet()
         {
             dic.Clear();
-            foreach (char c in alphabet)
+            foreach (char c in Alphabet)
             {
                 dic.Add(c, c);
             }
@@ -110,31 +110,31 @@ namespace Enigma
         }
         public void UpdateProgress()
         {
-            progress += 5;
-            ProgressBar.Value = progress;
-            lockedButtonCounter++;
-            if (lockedButtonCounter == 20)
+            Progress += 5;
+            ProgressBar.Value = Progress;
+            LockedButtonCounter++;
+            if (LockedButtonCounter == 20)
             {
                 ButtonEnable(false);
             }
-            if (buttonAlreadyPressed)
+            if (ButtonAlreadyPressed)
                 {
-                    buttonAlreadyPressed = false;
+                    ButtonAlreadyPressed = false;
                     ChangeDictonaryAndColors();
                 }
-            else buttonAlreadyPressed = true;
-            if (buttonAlreadyPressed) ButtonConvert.Enabled = false;
+            else ButtonAlreadyPressed = true;
+            if (ButtonAlreadyPressed) ButtonConvert.Enabled = false;
             else ButtonConvert.Enabled = true;
         }
         public void ChangeDictonaryAndColors()
         {
-            colorCounter += 3;
-            ChangeDictonary(lowerButton1, lowerButton2);
-            ChangeDictonary(upperButton1, upperButton2);
-            ChangeDictonary(lowerButton2, lowerButton1);
-            ChangeDictonary(upperButton2, upperButton1);
+            ColorCounter += 3;
+            ChangeDictonary(LowerButton1, LowerButton2);
+            ChangeDictonary(UpperButton1, UpperButton2);
+            ChangeDictonary(LowerButton2, LowerButton1);
+            ChangeDictonary(UpperButton2, UpperButton1);
         }
-        private void enigma_Load(object sender, EventArgs e)
+        private void Enigma_Load(object sender, EventArgs e)
         {
             InitialiseAlphabet();
         }
@@ -147,431 +147,427 @@ namespace Enigma
             InitialiseAlphabet();
             ButtonEnable(true);
             ResetButtonColor();            
-            progress = 0;
+            Progress = 0;
             ProgressBar.Value = 0;
-            colorCounter = 0;
-            buttonAlreadyPressed = false;
-            lockedButtonCounter = 0;
+            ColorCounter = 0;
+            ButtonAlreadyPressed = false;
+            LockedButtonCounter = 0;
             ButtonConvert.Enabled = true;            
-        }
-        private void TextBoxMain_TextChanged(object sender, EventArgs e)
-        {
-            
         }
         private void ButtonA_Click(object sender, EventArgs e)
         {
-           if (!buttonAlreadyPressed)
+           if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'a';
-                upperButton1 = 'A';
+                LowerButton1 = 'a';
+                UpperButton1 = 'A';
             }
             else
             {
-                lowerButton2 = 'a';
-                upperButton2 = 'A';
+                LowerButton2 = 'a';
+                UpperButton2 = 'A';
             }
             ButtonA.Enabled = false;
-            ButtonA.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonA.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonB_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'b';
-                upperButton1 = 'B';
+                LowerButton1 = 'b';
+                UpperButton1 = 'B';
             }
             else
             {
-                lowerButton2 = 'b';
-                upperButton2 = 'B';
+                LowerButton2 = 'b';
+                UpperButton2 = 'B';
             }
             ButtonB.Enabled = false;
-            ButtonB.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonB.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonC_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'c';
-                upperButton1 = 'C';
+                LowerButton1 = 'c';
+                UpperButton1 = 'C';
             }
             else
             {
-                lowerButton2 = 'c';
-                upperButton2 = 'C';
+                LowerButton2 = 'c';
+                UpperButton2 = 'C';
             }
             ButtonC.Enabled = false;
-            ButtonC.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonC.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonD_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'd';
-                upperButton1 = 'D';
+                LowerButton1 = 'd';
+                UpperButton1 = 'D';
             }
             else
             {
-                lowerButton2 = 'd';
-                upperButton2 = 'D';
+                LowerButton2 = 'd';
+                UpperButton2 = 'D';
             }
             ButtonD.Enabled = false;
-            ButtonD.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonD.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonE_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'e';
-                upperButton1 = 'E';
+                LowerButton1 = 'e';
+                UpperButton1 = 'E';
             }
             else
             {
-                lowerButton2 = 'e';
-                upperButton2 = 'E';
+                LowerButton2 = 'e';
+                UpperButton2 = 'E';
             }
             ButtonE.Enabled = false;
-            ButtonE.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonE.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonF_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'f';
-                upperButton1 = 'F';
+                LowerButton1 = 'f';
+                UpperButton1 = 'F';
             }
             else
             {
-                lowerButton2 = 'f';
-                upperButton2 = 'F';
+                LowerButton2 = 'f';
+                UpperButton2 = 'F';
             }
             ButtonF.Enabled = false;
-            ButtonF.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonF.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonG_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'g';
-                upperButton1 = 'G';
+                LowerButton1 = 'g';
+                UpperButton1 = 'G';
             }
             else
             {
-                lowerButton2 = 'g';
-                upperButton2 = 'G';
+                LowerButton2 = 'g';
+                UpperButton2 = 'G';
             }
             ButtonG.Enabled = false;
-            ButtonG.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonG.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonH_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'h';
-                upperButton1 = 'H';
+                LowerButton1 = 'h';
+                UpperButton1 = 'H';
             }
             else
             {
-                lowerButton2 = 'h';
-                upperButton2 = 'H';
+                LowerButton2 = 'h';
+                UpperButton2 = 'H';
             }
             ButtonH.Enabled = false;
-            ButtonH.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonH.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonI_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'i';
-                upperButton1 = 'I';
+                LowerButton1 = 'i';
+                UpperButton1 = 'I';
             }
             else
             {
-                lowerButton2 = 'i';
-                upperButton2 = 'I';
+                LowerButton2 = 'i';
+                UpperButton2 = 'I';
             }
             ButtonI.Enabled = false;
-            ButtonI.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonI.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonJ_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'j';
-                upperButton1 = 'J';
+                LowerButton1 = 'j';
+                UpperButton1 = 'J';
             }
             else
             {
-                lowerButton2 = 'j';
-                upperButton2 = 'J';
+                LowerButton2 = 'j';
+                UpperButton2 = 'J';
             }
             ButtonJ.Enabled = false;
-            ButtonJ.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonJ.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonK_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'k';
-                upperButton1 = 'K';
+                LowerButton1 = 'k';
+                UpperButton1 = 'K';
             }
             else
             {
-                lowerButton2 = 'k';
-                upperButton2 = 'K';
+                LowerButton2 = 'k';
+                UpperButton2 = 'K';
             }
             ButtonK.Enabled = false;
-            ButtonK.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonK.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonL_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'l';
-                upperButton1 = 'L';
+                LowerButton1 = 'l';
+                UpperButton1 = 'L';
             }
             else
             {
-                lowerButton2 = 'l';
-                upperButton2 = 'L';
+                LowerButton2 = 'l';
+                UpperButton2 = 'L';
             }
             ButtonL.Enabled = false;
-            ButtonL.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonL.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonM_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'm';
-                upperButton1 = 'M';
+                LowerButton1 = 'm';
+                UpperButton1 = 'M';
             }
             else
             {
-                lowerButton2 = 'm';
-                upperButton2 = 'M';
+                LowerButton2 = 'm';
+                UpperButton2 = 'M';
             }
             ButtonM.Enabled = false;
-            ButtonM.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonM.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonN_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'n';
-                upperButton1 = 'N';
+                LowerButton1 = 'n';
+                UpperButton1 = 'N';
             }
             else
             {
-                lowerButton2 = 'n';
-                upperButton2 = 'N';
+                LowerButton2 = 'n';
+                UpperButton2 = 'N';
             }
             ButtonN.Enabled = false;
-            ButtonN.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonN.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonO_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'o';
-                upperButton1 = 'O';
+                LowerButton1 = 'o';
+                UpperButton1 = 'O';
             }
             else
             {
-                lowerButton2 = 'o';
-                upperButton2 = 'O';
+                LowerButton2 = 'o';
+                UpperButton2 = 'O';
             }
             ButtonO.Enabled = false;
-            ButtonO.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonO.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonP_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'p';
-                upperButton1 = 'P';
+                LowerButton1 = 'p';
+                UpperButton1 = 'P';
             }
             else
             {
-                lowerButton2 = 'p';
-                upperButton2 = 'P';
+                LowerButton2 = 'p';
+                UpperButton2 = 'P';
             }
             ButtonP.Enabled = false;
-            ButtonP.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonP.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonQ_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'q';
-                upperButton1 = 'Q';
+                LowerButton1 = 'q';
+                UpperButton1 = 'Q';
             }
             else
             {
-                lowerButton2 = 'q';
-                upperButton2 = 'Q';
+                LowerButton2 = 'q';
+                UpperButton2 = 'Q';
             }
             ButtonQ.Enabled = false;
-            ButtonQ.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonQ.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonR_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'r';
-                upperButton1 = 'R';
+                LowerButton1 = 'r';
+                UpperButton1 = 'R';
             }
             else
             {
-                lowerButton2 = 'r';
-                upperButton2 = 'R';
+                LowerButton2 = 'r';
+                UpperButton2 = 'R';
             }
             ButtonR.Enabled = false;
-            ButtonR.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonR.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonS_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 's';
-                upperButton1 = 'S';
+                LowerButton1 = 's';
+                UpperButton1 = 'S';
             }
             else
             {
-                lowerButton2 = 's';
-                upperButton2 = 'S';
+                LowerButton2 = 's';
+                UpperButton2 = 'S';
             }
             ButtonS.Enabled = false;
-            ButtonS.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonS.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonT_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 't';
-                upperButton1 = 'T';
+                LowerButton1 = 't';
+                UpperButton1 = 'T';
             }
             else
             {
-                lowerButton2 = 't';
-                upperButton2 = 'T';
+                LowerButton2 = 't';
+                UpperButton2 = 'T';
             }
             ButtonT.Enabled = false;
-            ButtonT.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonT.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonU_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'u';
-                upperButton1 = 'U';
+                LowerButton1 = 'u';
+                UpperButton1 = 'U';
             }
             else
             {
-                lowerButton2 = 'u';
-                upperButton2 = 'U';
+                LowerButton2 = 'u';
+                UpperButton2 = 'U';
             }
             ButtonU.Enabled = false;
-            ButtonU.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonU.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonV_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'v';
-                upperButton1 = 'V';
+                LowerButton1 = 'v';
+                UpperButton1 = 'V';
             }
             else
             {
-                lowerButton2 = 'v';
-                upperButton2 = 'V';
+                LowerButton2 = 'v';
+                UpperButton2 = 'V';
             }
             ButtonV.Enabled = false;
-            ButtonV.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonV.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonW_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'w';
-                upperButton1 = 'W';
+                LowerButton1 = 'w';
+                UpperButton1 = 'W';
             }
             else
             {
-                lowerButton2 = 'w';
-                upperButton2 = 'W';
+                LowerButton2 = 'w';
+                UpperButton2 = 'W';
             }
             ButtonW.Enabled = false;
-            ButtonW.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonW.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonX_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'x';
-                upperButton1 = 'X';
+                LowerButton1 = 'x';
+                UpperButton1 = 'X';
             }
             else
             {
-                lowerButton2 = 'x';
-                upperButton2 = 'X';
+                LowerButton2 = 'x';
+                UpperButton2 = 'X';
             }
             ButtonX.Enabled = false;
-            ButtonX.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonX.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonY_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'y';
-                upperButton1 = 'Y';
+                LowerButton1 = 'y';
+                UpperButton1 = 'Y';
             }
             else
             {
-                lowerButton2 = 'y';
-                upperButton2 = 'Y';
+                LowerButton2 = 'y';
+                UpperButton2 = 'Y';
             }
             ButtonY.Enabled = false;
-            ButtonY.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonY.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
         private void ButtonZ_Click(object sender, EventArgs e)
         {
-            if (!buttonAlreadyPressed)
+            if (!ButtonAlreadyPressed)
             {
-                lowerButton1 = 'z';
-                upperButton1 = 'Z';
+                LowerButton1 = 'z';
+                UpperButton1 = 'Z';
             }
             else
             {
-                lowerButton2 = 'z';
-                upperButton2 = 'Z';
+                LowerButton2 = 'z';
+                UpperButton2 = 'Z';
             }
             ButtonZ.Enabled = false;
-            ButtonZ.BackColor = Color.FromArgb(colorList[colorCounter], colorList[colorCounter + 1], colorList[colorCounter + 2]);
+            ButtonZ.BackColor = Color.FromArgb(ColorList[ColorCounter], ColorList[ColorCounter + 1], ColorList[ColorCounter + 2]);
             UpdateProgress();
         }
     }
